@@ -333,7 +333,7 @@ def hello(func):
 
 hello(upper)
 
-# Recursion
+#---------RECURSION----------
 
 # Recursion is when a function calls itself. Every recursive function must have two parts:
 # 1. A base case - A condition that stops the recursion
@@ -346,3 +346,169 @@ def countdown(n):
         print(n)
         countdown(n - 1)
 countdown(5)
+
+#---------DATES----------
+
+#A date in Python is not a data type of its own, but we can import a module named datetime to work with dates as date objects.
+
+import datetime
+
+x = datetime.datetime.now()
+print(x)
+
+# Create a date object:
+x = datetime.datetime(2026, 2, 2)
+print(x)
+
+# The datetime object has a method for formatting date objects into readable strings.
+
+# The method is called strftime(), and takes one parameter, format, to specify the format of the returned string:
+
+# Write the month of the date
+print(x.strftime("%B"))
+# Write the day of the date
+print(x.strftime("%A"))
+
+
+#---------MATH----------
+
+# Build in Math Functions
+x = min(2, 6, 9)
+y = max(5, 9, 38)
+z = abs(-8)
+a = pow(2, 4)
+
+# Python has also a built-in module called math, which extends the list of mathematical functions.
+
+import math
+
+x = math.sqrt(64)
+y = math.ceil(1.4)
+z = math.floor(1.4)
+p = math.pi
+
+
+#---------JSON----------
+
+import json
+
+# Some Json
+x = '{"name": "John", "age": 76, "Address": "Street1"}'
+
+# Parse x
+y = json.loads(x)
+
+print(y["age"])
+
+# Convert python to json
+
+mydict = {
+    "name": "John",
+    "age": 23,
+    "Address": "102 Pulteney Road"
+    }
+
+y = json.dumps(mydict)
+print(y)
+
+# Create indents in the result
+y = json.dumps(mydict, indent=4, separators=(". ", " = "))
+print(y)
+
+#---------REGEX----------
+
+# A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.
+
+import re
+
+txt = "The rain is pouring down"
+
+# Search the string to see if it starts with "The" and ends with "down":
+x = re.search("^The.*down$", txt)
+
+# Print a list of all "ai" matches:
+y = re.findall("ai", txt)
+print(y)
+
+# The search() function searches the string for a match, and returns a Match object if there is a match.
+
+y = re.search("\s", txt)
+print("The first white-space character is located in position:", y.start())
+
+# The split() function returns a list where the string has been split at each match:
+
+x = re.split("\s", txt)
+print(x)
+
+# The sub() function replaces the matches with the text of your choice:
+
+x = re.sub("\s", "9", txt)
+print(x)
+
+# A Match Object is an object containing information about the search and the result.
+
+# The Match object has properties and methods used to retrieve information about the search, and the result:
+
+# .span() returns a tuple containing the start-, and end positions of the match.
+# .string returns the string passed into the function
+# .group() returns the part of the string where there was a match
+
+# Print the position (start- and end-position) of the first match occurrence.
+# The regular expression looks for any words that starts with an upper case "S":
+txt = "The rain in Spain"
+x = re.search(r"\bS\w+", txt)
+print(x.span())
+print(x.string)
+print(x.group())
+
+#---------TRY EXCEPT----------
+
+# The try block lets you test a block of code for errors.
+# The except block lets you handle the error.
+# The else block lets you execute code when there is no error.
+# The finally block lets you execute code, regardless of the result of the try- and except blocks.
+
+# The try block will generate an exception, because jnk is not defined:
+try:
+    print(jnk)
+except:
+    print("An exception occured")
+
+# Print one message if the try block raises a NameError and another for other errors:
+try:
+    print(jnk)
+except NameError:
+    print("Variable jnk is not defined")
+except:
+    print("Something else is wrong")
+
+# You can use the else keyword to define a block of code to be executed if no errors were raised:
+
+try:
+    print("Hello")
+except:
+    print("Something went wrong")
+else:
+    print("Nothing went wrong")
+
+# The finally block, if specified, will be executed regardless if the try block raises an error or not.
+
+try:
+    print(jnk)
+except:
+    print("Something went wrong")
+finally:
+    print("The 'try except' is finished")
+
+# Try to open and write to a file that is not writable:
+
+try:
+  f = open("demofile.txt")
+  try:
+    f.write("Lorum Ipsum")
+  except:
+    print("Something went wrong when writing to the file")
+  finally:
+    f.close()
+except:
+  print("Something went wrong when opening the file")
