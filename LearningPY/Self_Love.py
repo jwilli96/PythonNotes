@@ -415,7 +415,7 @@ print(y)
 y = json.dumps(mydict, indent=4, separators=(". ", " = "))
 print(y)
 
-#---------REFEX----------
+#---------REGEX----------
 
 # A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.
 
@@ -439,3 +439,63 @@ print("The first white-space character is located in position:", y.start())
 
 x = re.split("\s", txt)
 print(x)
+
+# The sub() function replaces the matches with the text of your choice:
+
+x = re.sub("\s", "9", txt)
+print(x)
+
+# A Match Object is an object containing information about the search and the result.
+
+# The Match object has properties and methods used to retrieve information about the search, and the result:
+
+# .span() returns a tuple containing the start-, and end positions of the match.
+# .string returns the string passed into the function
+# .group() returns the part of the string where there was a match
+
+# Print the position (start- and end-position) of the first match occurrence.
+# The regular expression looks for any words that starts with an upper case "S":
+txt = "The rain in Spain"
+x = re.search(r"\bS\w+", txt)
+print(x.span())
+print(x.string)
+print(x.group())
+
+#---------TRY EXCEPT----------
+
+# The try block lets you test a block of code for errors.
+# The except block lets you handle the error.
+# The else block lets you execute code when there is no error.
+# The finally block lets you execute code, regardless of the result of the try- and except blocks.
+
+# The try block will generate an exception, because jnk is not defined:
+try:
+    print(jnk)
+except:
+    print("An exception occured")
+
+# Print one message if the try block raises a NameError and another for other errors:
+try:
+    print(jnk)
+except NameError:
+    print("Variable jnk is not defined")
+except:
+    print("Something else is wrong")
+
+# You can use the else keyword to define a block of code to be executed if no errors were raised:
+
+try:
+    print("Hello")
+except:
+    print("Something went wrong")
+else:
+    print("Nothing went wrong")
+
+# The finally block, if specified, will be executed regardless if the try block raises an error or not.
+
+try:
+    print(jnk)
+except:
+    print("Something went wrong")
+finally:
+    print("The 'try except' is finished")

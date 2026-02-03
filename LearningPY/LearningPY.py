@@ -1,5 +1,6 @@
-import re
-
-txt = "The rain is pouring down"
-x = re.search("^The.*down$", txt)
-print(x)
+try:
+    print(jnk)
+except:
+    print("Something went wrong")
+finally:
+    print("The 'try except' is finished")
