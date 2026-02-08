@@ -1,6 +1,9 @@
-try:
-    print(jnk)
-except:
-    print("Something went wrong")
-finally:
-    print("The 'try except' is finished")
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+p1 = Person("Emil", 36)
+
+print(p1.name)
+print(p1.age)

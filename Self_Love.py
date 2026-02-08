@@ -512,3 +512,55 @@ try:
     f.close()
 except:
   print("Something went wrong when opening the file")
+
+  #---------STRING FORMATTING----------
+
+price = 50
+tax = 1.2
+text = f"The price is {price:.2f} dollars"
+text = f"The price is {price * tax}"
+print(text)
+
+price = 49
+txt = f"It is very {'Expensive' if price>50 else 'Cheap'}"
+print(txt)
+
+# Use the string method upper()to convert a value into upper case letters:
+
+fruit = "apples"
+txt = f"I love {fruit.upper()}"
+print(txt)
+
+#---------INPUT----------
+
+name = input("Enter your name:")
+print(f"Hello {name}")
+
+#---------CLASSES AND OBJECTS----------
+
+# Create a class named MyClass, with a property named x:
+class MyClass:
+    x = 5
+
+# Create an object named p1, and print the value of x: 
+p1 = MyClass()
+print(p1.x)
+
+# Delete objects like this:
+del p1
+
+#---------The __init__() Method----------
+# All classes have a built-in method called __init__(), which is always executed when the class is being initiated.
+# The __init__() method is used to assign values to object properties, or to perform operations that are necessary when the object is being created.
+
+# Create a class named Person, use the __init__() method to assign values for name and age:
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+p1 = Person("Emil", 36)
+
+print(p1.name)
+print(p1.age)
+
